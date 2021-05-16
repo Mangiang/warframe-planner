@@ -1,0 +1,26 @@
+export interface Drop {
+    location: string
+    type: string
+    chance: number
+    rarity: string
+}
+
+export interface LevelStat {
+    stats: string[]
+}
+
+export interface RawItem {
+    uniqueName: string
+    name: string
+    type: string
+    description: string
+    imageName: string
+    category: string
+    tradable: boolean
+    levelStats?: LevelStat
+    rarity?: string
+    excludeFromCodex?: boolean
+    components: RawItem[]
+    buildQuantity?: number
+    itemCount?: number
+}
