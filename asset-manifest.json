@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Mangiang/warframe-planner/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/Mangiang/warframe-planner/static/js/main.afa59794.chunk.js",
+    "main.js.map": "/Mangiang/warframe-planner/static/js/main.afa59794.chunk.js.map",
+    "runtime-main.js": "/Mangiang/warframe-planner/static/js/runtime-main.670b2f27.js",
+    "runtime-main.js.map": "/Mangiang/warframe-planner/static/js/runtime-main.670b2f27.js.map",
+    "static/js/2.f401ae98.chunk.js": "/Mangiang/warframe-planner/static/js/2.f401ae98.chunk.js",
+    "static/js/2.f401ae98.chunk.js.map": "/Mangiang/warframe-planner/static/js/2.f401ae98.chunk.js.map",
+    "static/js/3.ed6bb548.chunk.js": "/Mangiang/warframe-planner/static/js/3.ed6bb548.chunk.js",
+    "static/js/3.ed6bb548.chunk.js.map": "/Mangiang/warframe-planner/static/js/3.ed6bb548.chunk.js.map",
+    "index.html": "/Mangiang/warframe-planner/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "/Mangiang/warframe-planner/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.f401ae98.chunk.js.LICENSE.txt": "/Mangiang/warframe-planner/static/js/2.f401ae98.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.670b2f27.js",
+    "static/js/2.f401ae98.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.afa59794.chunk.js"
+  ]
+}
