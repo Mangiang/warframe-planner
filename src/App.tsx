@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import './App.css';
-import {Box} from "@material-ui/core";
+import {Box, CircularProgress} from "@material-ui/core";
 import {initDatabase} from "./DataAccess/IndexedDB"
 import {Navigation} from "./Routes/Navigation";
 import {useIndexedDB} from "react-indexed-db";
@@ -13,6 +13,7 @@ initDatabase()
 export const App = () => {
     const itemsDB = useIndexedDB('items');
     const [loadingItems, setLoadingItems] = useState(true);
+    const [initMap, setInitMap] = useState<boolean>(false);
     const [itemsMap, setItemsMap] = useState<Map<string, RawItem>>(new Map());
 
     const updateItemList = useCallback(
@@ -39,12 +40,15 @@ export const App = () => {
         }, [itemsDB]);
 
     useEffect(() => {
-        (async () => await updateItemList())()
-    }, [updateItemList]);
+        if (!initMap) {
+            setInitMap(true);
+            (async () => await updateItemList())()
+        }
+    }, [initMap, updateItemList]);
 
     const DisplayApp = (isLoading: boolean) => {
         if (isLoading)
-            return <h1>Loading Warframe items please wait ...</h1>
+            return (<><h1>Loading Warframe items please wait ...</h1><CircularProgress/></>)
         return <Navigation/>
     }
 

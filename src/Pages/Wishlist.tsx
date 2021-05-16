@@ -5,7 +5,7 @@ import {AutocompleteText} from "../Components/AutocompleteText";
 import {ItemTree} from "../Components/ItemTree";
 import {Item} from "../Data/Item";
 import {Box} from "@material-ui/core";
-import {useIndexedDB} from "react-indexed-db";
+// import {useIndexedDB} from "react-indexed-db";
 // import {Wish} from "../Data/Wish";
 // import {InventoryItem} from "../Data/InventoryItem";
 import {ItemsListContext} from "../Context/ItemsListContext";
@@ -16,8 +16,8 @@ export const Wishlist = () => {
     const [searchData, setSearchData] = useState<Item[]>([]);
     const [selectedItem, setSelectedItem] = useState<Item | undefined>(undefined);
     const [selectedData, setSelectedData] = useState<Item | undefined>(undefined);
-    const [wishlistData, setWishlistData] = useState<Item[]>([]);
-    const wishlistDB = useIndexedDB('wishlist');
+    // const [wishlistData, setWishlistData] = useState<Item[]>([]);
+    // const wishlistDB = useIndexedDB('wishlist');
     // const inventoryDB = useIndexedDB('inventory');
 
     const getSearchResults = useCallback(
@@ -73,18 +73,26 @@ export const Wishlist = () => {
     );
 
 
+    // const updateWishlistData = useCallback(
+    //     async (): Promise<void> => {
+    //         console.log("test")
+    //         const list = (await wishlistDB.getAll()).filter(it => !wishlistData.find(elt => elt.id === it.id));
+    //         const newList = await Promise.all(list.map(it => getComponents(it, it.id)));
+    //         newList.push(...wishlistData)
+    //         setWishlistData(newList)
+    //     },
+    //     [wishlistDB, wishlistData, getComponents],
+    // );
+
     useEffect(() => {
         getSearchResults(".*");
     }, [getSearchResults])
 
-    useEffect(() => {
-        (async () => {
-            const list = (await wishlistDB.getAll()).filter(it => !wishlistData.find(elt => elt.id === it.id));
-            const newList = await Promise.all(list.map(it => getComponents(it, it.id)));
-            newList.push(...wishlistData)
-            setWishlistData(newList)
-        })()
-    }, [wishlistDB, wishlistData, getComponents])
+    // useEffect(() => {
+    //     (async () => {
+    //        await updateWishlistData()
+    //     })()
+    // }, [updateWishlistData])
 
     useEffect(() => {
         (async () => {
@@ -132,10 +140,10 @@ export const Wishlist = () => {
             {/*<Button variant="contained" onClick={addToWhishlist}>Add to whishlist</Button>*/}
             <Box style={{width: "20vw"}}>
                 <ItemTree data={selectedData}/>
-                {
-                    wishlistData.map(it =>
-                        <ItemTree key={it.id} data={it}/>)
-                }
+                {/*{*/}
+                {/*    wishlistData.map(it =>*/}
+                {/*        <ItemTree key={it.id} data={it}/>)*/}
+                {/*}*/}
             </Box>
         </div>
     );
