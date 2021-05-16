@@ -1,6 +1,6 @@
 {
   "name": "warframe-planner-frontend",
-  "homepage": "https://github.com/Mangiang/warframe-planner",
+  "homepage": "https://mangiang.github.io/warframe-planner/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
