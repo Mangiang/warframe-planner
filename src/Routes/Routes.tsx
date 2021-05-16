@@ -1,5 +1,5 @@
 import {Wishlist} from "../Pages/Wishlist";
-import {Inventory} from "../Pages/Inventory";
+// import {Inventory} from "../Pages/Inventory";
 import {Storage} from "../Pages/Storage";
 import React from "react";
 

@@ -36,11 +36,11 @@ export const App = () => {
             itemList.forEach((it: RawItem) => newItemMap.set(it.uniqueName, it))
             setItemsMap(newItemMap)
             setLoadingItems(false)
-        }, []);
+        }, [itemsDB]);
 
     useEffect(() => {
         (async () => await updateItemList())()
-    }, []);
+    }, [updateItemList]);
 
     const DisplayApp = (isLoading: boolean) => {
         if (isLoading)

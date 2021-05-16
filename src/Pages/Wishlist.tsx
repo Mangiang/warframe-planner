@@ -1,14 +1,13 @@
 import React, {useCallback, useContext, useEffect, useState} from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import axios from "axios";
 import {AutocompleteText} from "../Components/AutocompleteText";
 import {ItemTree} from "../Components/ItemTree";
 import {Item} from "../Data/Item";
-import {Box, Button} from "@material-ui/core";
+import {Box} from "@material-ui/core";
 import {useIndexedDB} from "react-indexed-db";
-import {Wish} from "../Data/Wish";
-import {InventoryItem} from "../Data/InventoryItem";
+// import {Wish} from "../Data/Wish";
+// import {InventoryItem} from "../Data/InventoryItem";
 import {ItemsListContext} from "../Context/ItemsListContext";
 import {RawItem} from "../Data/WarframeItems";
 
@@ -19,7 +18,7 @@ export const Wishlist = () => {
     const [selectedData, setSelectedData] = useState<Item | undefined>(undefined);
     const [wishlistData, setWishlistData] = useState<Item[]>([]);
     const wishlistDB = useIndexedDB('wishlist');
-    const inventoryDB = useIndexedDB('inventory');
+    // const inventoryDB = useIndexedDB('inventory');
 
     const getSearchResults = useCallback(
         (search: string) => {
@@ -70,13 +69,13 @@ export const Wishlist = () => {
             newItem.components.filter(it => it !== null && it !== undefined);
             return newItem
         },
-        [],
+        [itemsListContext],
     );
 
 
     useEffect(() => {
         getSearchResults(".*");
-    }, [])
+    }, [getSearchResults])
 
     useEffect(() => {
         (async () => {
@@ -95,26 +94,26 @@ export const Wishlist = () => {
         })()
     }, [selectedItem, getComponents])
 
-    const addToInventory = async (item: Item) => {
-        let invItem: InventoryItem | undefined = await inventoryDB.getByID(item.id)
-        if (invItem) {
-            invItem.total += item.amount
-        } else {
-            invItem = new InventoryItem(item.name, item.id, 0, item.amount)
-        }
+    // const addToInventory = async (item: Item) => {
+    //     let invItem: InventoryItem | undefined = await inventoryDB.getByID(item.id)
+    //     if (invItem) {
+    //         invItem.total += item.amount
+    //     } else {
+    //         invItem = new InventoryItem(item.name, item.id, 0, item.amount)
+    //     }
+    //
+    //     await Promise.all(item.components.map(comp => addToInventory(comp)))
+    //
+    //     await inventoryDB.add(invItem)
+    // }
 
-        await Promise.all(item.components.map(comp => addToInventory(comp)))
-
-        await inventoryDB.add(invItem)
-    }
-
-    const addToWhishlist = async () => {
-        if (!selectedItem) return
-
-        await wishlistDB.add(new Wish(selectedItem.name, selectedItem.id, selectedItem.amount, selectedItem.imageName))
-        setWishlistData(await wishlistDB.getAll())
-        await addToInventory(selectedItem)
-    }
+    // const addToWhishlist = async () => {
+    //     if (!selectedItem) return
+    //
+    //     await wishlistDB.add(new Wish(selectedItem.name, selectedItem.id, selectedItem.amount, selectedItem.imageName))
+    //     setWishlistData(await wishlistDB.getAll())
+    //     await addToInventory(selectedItem)
+    // }
 
     return (
         <div className="App">
