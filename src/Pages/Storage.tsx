@@ -27,7 +27,6 @@ export const Storage = () => {
 
     const wishlistDB = useIndexedDB('wishlist');
     const inventoryDB = useIndexedDB('inventory');
-    const trackingDB = useIndexedDB('tracking');
     const itemsDB = useIndexedDB('items');
 
 
@@ -55,15 +54,12 @@ export const Storage = () => {
         if (confirmationChoices[choiceIdx].text === "Apply") {
             const wishlist = await wishlistDB.getAll()
             const inventory = await inventoryDB.getAll()
-            const tracking = await trackingDB.getAll()
             const items = await itemsDB.getAll()
             const removeList = []
             if (wishlist.length > 0)
                 removeList.push(...wishlist.map(elt => wishlistDB.deleteRecord(elt.id)))
             if (inventory.length > 0)
                 removeList.push(...inventory.map(elt => inventoryDB.deleteRecord(elt.id)))
-            if (tracking.length > 0)
-                removeList.push(...tracking.map(elt => trackingDB.deleteRecord(elt.id)))
             if (items.length > 0)
                 removeList.push(...items.map(elt => itemsDB.deleteRecord(elt.id)))
             await Promise.all(removeList)
@@ -78,7 +74,7 @@ export const Storage = () => {
             body: "This will remove all Data. You CANNOT revert this operation",
             choices: confirmationChoices,
             handleClose: handleClearAllClose,
-            buttonText: "Clear tracking data",
+            buttonText: "Clear data",
             buttonOnClick: () => setAllClearDialogOpen(true)
         }
         // {

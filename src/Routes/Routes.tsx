@@ -1,6 +1,6 @@
 import {Wishlist} from "../Pages/Wishlist";
 // import {Inventory} from "../Pages/Inventory";
-import {Storage} from "../Pages/Storage";
+// import {Storage} from "../Pages/Storage";
 import React from "react";
 
 export interface Route {
@@ -19,10 +19,10 @@ export const Routes: Route[] = [
     //     id: `inventory`,
     //     'aria-controls': `inventory`,
     //     page: <Inventory/>
-    // },
-    {
-        id: `manage data storage`,
-        'aria-controls': `manage data storage`,
-        page: <Storage/>
-    }
+    // }
+    // {
+    //     id: `manage data storage`,
+    //     'aria-controls': `manage data storage`,
+    //     page: <Storage/>
+    // }
 ]

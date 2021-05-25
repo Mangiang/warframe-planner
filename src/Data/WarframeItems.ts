@@ -9,18 +9,18 @@ export interface LevelStat {
     stats: string[]
 }
 
-export interface RawItem {
-    uniqueName: string
-    name: string
-    type: string
-    description: string
-    imageName: string
-    category: string
-    tradable: boolean
+export class RawItem {
+    uniqueName: string = ''
+    name: string = ''
+    type: string = ''
+    description: string = ''
+    imageName: string = ''
+    category: string = ''
+    tradable: boolean = false
     levelStats?: LevelStat
     rarity?: string
     excludeFromCodex?: boolean
-    components: RawItem[]
+    components: RawItem[] = []
     buildQuantity?: number
     itemCount?: number
 }

@@ -28,13 +28,6 @@ const DBConfig = {
                 {name: 'have', keypath: 'have', options: {unique: false}},
                 {name: 'need', keypath: 'need', options: {unique: false}},
             ]
-        },
-        {
-            store: 'tracking',
-            storeConfig: {keyPath: 'id', autoIncrement: false},
-            storeSchema: [
-                {name: 'name', keypath: 'name', options: {unique: true}}
-            ]
         }
     ]
 };
