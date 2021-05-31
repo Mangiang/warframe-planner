@@ -3,7 +3,7 @@ import React from 'react';
 // import {useIndexedDB} from "react-indexed-db";
 // import {DataGrid, GridColumns, GridEditCellPropsParams, GridSortCellParams} from '@material-ui/data-grid';
 // import {GridColumns, GridSortCellParams} from '@material-ui/data-grid';
-// import {Item} from "../Data/Item";
+// import {ParentItem} from "../Data/ParentItem";
 
 // const needCompute = (params: GridSortCellParams): number => {
 //     const totalStr = params.getValue('total')
@@ -35,7 +35,7 @@ export const Inventory = () => {
     // const [inventory, setInventory] = useState<any[]>([])
     // const [wishList, setWishList] = useState<any[]>([])
 
-    // const listComponents = (item: Item): Item[] => {
+    // const listComponents = (item: ParentItem): ParentItem[] => {
     //     if (!item.components || item.components.length === 0)
     //         return [];
     //     return item.components.map(comp => listComponents(comp)).flat()

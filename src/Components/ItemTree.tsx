@@ -10,7 +10,7 @@ export const ItemTree = (props: Props) => {
     const [data, setData] = useState<Tree>();
 
     // const transformData = useCallback(
-    //     (item: Item): Tree => {
+    //     (item: ParentItem): Tree => {
     //         return {
     //             value: item.amount ? `${item.amount} ${item.name}` : item.name,
     //             nodes: !item.components ? [] : item.components.map(comp => transformData(comp))

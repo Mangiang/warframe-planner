@@ -38,10 +38,10 @@ import {ItemsMapAccess} from "../State/Items/ItemsMap";
 export const Wishlist = () => {
     // const classes = useStyles();
     const itemsListContext = useContext(ItemsListContext);
-    // const [searchData, setSearchData] = useState<Item[]>([]);
+    // const [searchData, setSearchData] = useState<ParentItem[]>([]);
     const [selectedItem, setSelectedItem] = useState<SearchItem | undefined>(undefined);
-    // const [selectedData, setSelectedData] = useState<Item | undefined>(undefined);
-    // const [wishlistData, setWishlistData] = useState<Item[]>([]);
+    // const [selectedData, setSelectedData] = useState<ParentItem | undefined>(undefined);
+    // const [wishlistData, setWishlistData] = useState<ParentItem[]>([]);
     // const wishlistDB = useIndexedDB('wishlist');
     // const inventoryDB = useIndexedDB('inventory');
     const itemsList = useRecoilCallback(({snapshot}) => () => {
@@ -59,7 +59,7 @@ export const Wishlist = () => {
     //         const regex = new RegExp(search, 'i');
     //         const filteredItems = Array.from(itemsListContext.values())
     //             .filter(it => it.name.match(regex))
-    //             .map(it => (new Item(it.name, it.uniqueName)));
+    //             .map(it => (new ParentItem(it.name, it.uniqueName)));
     //         setSearchData(filteredItems)
     //     },
     //     [itemsListContext]
@@ -67,7 +67,7 @@ export const Wishlist = () => {
 
 
     // const getComponents = useCallback(
-    //     async (parent: Item, item: string): Promise<Item> => {
+    //     async (parent: ParentItem, item: string): Promise<ParentItem> => {
     //         const parentItem: RawItem | undefined = itemsListContext.get(item)
     //         let components: any = undefined;
     //         if (parentItem && parentItem.components) {
@@ -86,7 +86,7 @@ export const Wishlist = () => {
     //
     //         const newItem = parent;
     //         const componentsData: any = await Promise.all(components.components.map(async (comp: any) => {
-    //             return await getComponents(new Item(comp.name, comp.id, comp.amount, [], comp.imageName), comp.id)
+    //             return await getComponents(new ParentItem(comp.name, comp.id, comp.amount, [], comp.imageName), comp.id)
     //         }));
     //         newItem.components = []
     //         if (newItem.amount && componentsData) {
@@ -157,7 +157,7 @@ export const Wishlist = () => {
     //     // await addToInventory(selectedItem)
     // }
 
-    // const toggleItemTracking = (parent: Item, item?: Item): Item => {
+    // const toggleItemTracking = (parent: ParentItem, item?: ParentItem): ParentItem => {
     //
     //     if (item && parent.id === item.id){
     //         parent.tracked = !parent.tracked
@@ -171,18 +171,18 @@ export const Wishlist = () => {
     //     return parent
     // }
 
-    // const toggleTracking = (trackingItem: Item) => {
+    // const toggleTracking = (trackingItem: ParentItem) => {
     //     const newWishData = wishlistData.map(wish => toggleItemTracking(wish, trackingItem))
     //     setWishlistData(newWishData)
     // }
     //
-    // const toggleChildrenTracking = (trackingItem: Item) => {
+    // const toggleChildrenTracking = (trackingItem: ParentItem) => {
     //     const newWishData = wishlistData.map(wish => wish.id === trackingItem.id ? toggleItemTracking(wish) : wish)
     //     setWishlistData(newWishData)
     // }
 
     // const getTreeItems = useCallback(
-    //     (item: Item) => {
+    //     (item: ParentItem) => {
     //         return (<TreeItem nodeId={item.id} label={<CustomTreeItem item={item}
     //                                                                   toggleChildrenTracking={toggleChildrenTracking}
     //                                                                   toggleTracking={toggleTracking}/>}>
