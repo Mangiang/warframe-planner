@@ -1,0 +1,1166 @@
+type Warframe {
+  _id: ObjectId
+  name: String
+  recipe: Recipe
+  uniqueName: String
+}
+
+input CustomQueryInput {
+  recipe_exists: Boolean
+  AND: [CustomQueryInput!]
+  recipe_nin: [ObjectId]
+  uniqueName_gt: String
+  name_gt: String
+  _id_ne: ObjectId
+  name_gte: String
+  _id_lte: ObjectId
+  uniqueName_gte: String
+  name: String
+  recipe_ne: ObjectId
+  name_lt: String
+  name_exists: Boolean
+  uniqueName_ne: String
+  _id_gt: ObjectId
+  _id_gte: ObjectId
+  recipe_gt: ObjectId
+  uniqueName_exists: Boolean
+  uniqueName_nin: [String]
+  name_in: [String]
+  uniqueName_lt: String
+  _id_in: [ObjectId]
+  recipe_in: [ObjectId]
+  recipe_lt: ObjectId
+  uniqueName_lte: String
+  _id_exists: Boolean
+  OR: [CustomQueryInput!]
+  recipe_gte: ObjectId
+  _id_nin: [ObjectId]
+  _id_lt: ObjectId
+  recipe: ObjectId
+  _id: ObjectId
+  name_nin: [String]
+  recipe_lte: ObjectId
+  name_ne: String
+  uniqueName_in: [String]
+  name_lte: String
+  uniqueName: String
+}
+
+type Custom {
+  _id: ObjectId
+  name: String
+  recipe: ObjectId
+  uniqueName: String
+}
+
+input RelicarcaneInsertInput {
+  _id: ObjectId
+  name: String
+  uniqueName: String
+}
+
+input CustomUpdateInput {
+  recipe_unset: Boolean
+  uniqueName: String
+  uniqueName_unset: Boolean
+  _id: ObjectId
+  _id_unset: Boolean
+  name: String
+  name_unset: Boolean
+  recipe: ObjectId
+}
+
+input WarframeRecipeRelationInput {
+  link: ObjectId
+  create: RecipeInsertInput
+}
+
+input IngredientItemRelationInput {
+  link: ObjectId
+  create: ItemInsertInput
+}
+
+input SentinelUpdateInput {
+  _id_unset: Boolean
+  name: String
+  name_unset: Boolean
+  recipe: ObjectId
+  recipe_unset: Boolean
+  uniqueName: String
+  uniqueName_unset: Boolean
+  _id: ObjectId
+}
+
+input GearUpdateInput {
+  name: String
+  name_unset: Boolean
+  recipe: ObjectId
+  recipe_unset: Boolean
+  uniqueName: String
+  uniqueName_unset: Boolean
+  _id: ObjectId
+  _id_unset: Boolean
+}
+
+enum IngredientSortByInput {
+  COUNT_DESC
+  ITEM_ASC
+  ITEM_DESC
+  _ID_ASC
+  _ID_DESC
+  COUNT_ASC
+}
+
+enum UpgradeSortByInput {
+  _ID_ASC
+  _ID_DESC
+  NAME_ASC
+  NAME_DESC
+  UNIQUENAME_ASC
+  UNIQUENAME_DESC
+}
+
+type Drone {
+  _id: ObjectId
+  name: String
+  recipe: ObjectId
+  uniqueName: String
+}
+
+type InsertManyPayload {
+  insertedIds: [ObjectId]!
+}
+
+enum RecipeSortByInput {
+  UNIQUENAME_DESC
+  _ID_ASC
+  _ID_DESC
+  NAME_ASC
+  NAME_DESC
+  UNIQUENAME_ASC
+}
+
+input IngredientUpdateInput {
+  item: IngredientItemRelationInput
+  item_unset: Boolean
+  _id: ObjectId
+  _id_unset: Boolean
+  count: Int
+  count_inc: Int
+  count_unset: Boolean
+}
+
+input WeaponUpdateInput {
+  _id_unset: Boolean
+  name: String
+  name_unset: Boolean
+  recipe: ObjectId
+  recipe_unset: Boolean
+  uniqueName: String
+  uniqueName_unset: Boolean
+  _id: ObjectId
+}
+
+enum GearSortByInput {
+  RECIPE_ASC
+  RECIPE_DESC
+  UNIQUENAME_ASC
+  UNIQUENAME_DESC
+  _ID_ASC
+  _ID_DESC
+  NAME_ASC
+  NAME_DESC
+}
+
+type Gear {
+  _id: ObjectId
+  name: String
+  recipe: ObjectId
+  uniqueName: String
+}
+
+input ManifestQueryInput {
+  _id_lt: ObjectId
+  manifests_exists: Boolean
+  OR: [ManifestQueryInput!]
+  lastUpdated_gt: DateTime
+  _id_in: [ObjectId]
+  _id_nin: [ObjectId]
+  lastUpdated: DateTime
+  AND: [ManifestQueryInput!]
+  manifests_nin: [String]
+  _id: ObjectId
+  lastUpdated_lt: DateTime
+  _id_ne: ObjectId
+  lastUpdated_in: [DateTime]
+  _id_lte: ObjectId
+  lastUpdated_lte: DateTime
+  _id_gte: ObjectId
+  lastUpdated_gte: DateTime
+  manifests: [String]
+  _id_gt: ObjectId
+  lastUpdated_nin: [DateTime]
+  lastUpdated_ne: DateTime
+  _id_exists: Boolean
+  lastUpdated_exists: Boolean
+  manifests_in: [String]
+}
+
+type Recipe {
+  _id: ObjectId
+  ingredients: [Ingredient]
+  name: String
+  uniqueName: String
+}
+
+enum WarframeSortByInput {
+  UNIQUENAME_ASC
+  UNIQUENAME_DESC
+  _ID_ASC
+  _ID_DESC
+  NAME_ASC
+  NAME_DESC
+  RECIPE_ASC
+  RECIPE_DESC
+}
+
+input WarframeInsertInput {
+  _id: ObjectId
+  name: String
+  recipe: WarframeRecipeRelationInput
+  uniqueName: String
+}
+
+input ItemQueryInput {
+  uniqueName: String
+  uniqueName_gt: String
+  name: String
+  uniqueName_lte: String
+  AND: [ItemQueryInput!]
+  _id_lte: ObjectId
+  uniqueName_lt: String
+  _id_gt: ObjectId
+  _id_in: [ObjectId]
+  uniqueName_nin: [String]
+  _id: ObjectId
+  name_in: [String]
+  _id_ne: ObjectId
+  uniqueName_exists: Boolean
+  recipe_exists: Boolean
+  uniqueName_gte: String
+  _id_nin: [ObjectId]
+  _id_gte: ObjectId
+  name_lt: String
+  uniqueName_ne: String
+  OR: [ItemQueryInput!]
+  name_gt: String
+  recipe: RecipeQueryInput
+  name_gte: String
+  name_ne: String
+  uniqueName_in: [String]
+  name_nin: [String]
+  _id_lt: ObjectId
+  _id_exists: Boolean
+  name_exists: Boolean
+  name_lte: String
+}
+
+input RecipeQueryInput {
+  _id_lte: ObjectId
+  _id_exists: Boolean
+  uniqueName_nin: [String]
+  name_lt: String
+  _id_nin: [ObjectId]
+  _id_ne: ObjectId
+  name: String
+  name_gt: String
+  name_lte: String
+  name_exists: Boolean
+  _id_lt: ObjectId
+  uniqueName_lt: String
+  uniqueName_in: [String]
+  _id_gt: ObjectId
+  ingredients: [IngredientQueryInput]
+  AND: [RecipeQueryInput!]
+  ingredients_nin: [IngredientQueryInput]
+  uniqueName_exists: Boolean
+  _id_gte: ObjectId
+  ingredients_in: [IngredientQueryInput]
+  uniqueName_lte: String
+  uniqueName_ne: String
+  uniqueName: String
+  _id_in: [ObjectId]
+  uniqueName_gt: String
+  OR: [RecipeQueryInput!]
+  name_in: [String]
+  name_ne: String
+  uniqueName_gte: String
+  name_nin: [String]
+  ingredients_exists: Boolean
+  _id: ObjectId
+  name_gte: String
+}
+
+input ResourceQueryInput {
+  _id_ne: ObjectId
+  _id_gte: ObjectId
+  recipe_nin: [ObjectId]
+  recipe_gte: ObjectId
+  uniqueName_exists: Boolean
+  name_gt: String
+  uniqueName_gte: String
+  name_ne: String
+  _id_nin: [ObjectId]
+  uniqueName_nin: [String]
+  _id_exists: Boolean
+  _id: ObjectId
+  recipe_lte: ObjectId
+  uniqueName_lt: String
+  uniqueName_gt: String
+  name_nin: [String]
+  recipe_gt: ObjectId
+  recipe_ne: ObjectId
+  name_exists: Boolean
+  name_in: [String]
+  _id_lt: ObjectId
+  uniqueName_ne: String
+  uniqueName: String
+  uniqueName_lte: String
+  _id_lte: ObjectId
+  recipe: ObjectId
+  recipe_exists: Boolean
+  AND: [ResourceQueryInput!]
+  recipe_lt: ObjectId
+  name_lt: String
+  name: String
+  name_gte: String
+  name_lte: String
+  recipe_in: [ObjectId]
+  uniqueName_in: [String]
+  _id_in: [ObjectId]
+  _id_gt: ObjectId
+  OR: [ResourceQueryInput!]
+}
+
+enum ItemSortByInput {
+  RECIPE_DESC
+  UNIQUENAME_ASC
+  UNIQUENAME_DESC
+  _ID_ASC
+  _ID_DESC
+  NAME_ASC
+  NAME_DESC
+  RECIPE_ASC
+}
+
+input ManifestInsertInput {
+  _id: ObjectId
+  lastUpdated: DateTime
+  manifests: [String]
+}
+
+input DroneInsertInput {
+  recipe: ObjectId
+  uniqueName: String
+  _id: ObjectId
+  name: String
+}
+
+input UpgradeUpdateInput {
+  _id_unset: Boolean
+  name: String
+  name_unset: Boolean
+  uniqueName: String
+  uniqueName_unset: Boolean
+  _id: ObjectId
+}
+
+input IngredientQueryInput {
+  count_gte: Int
+  _id_exists: Boolean
+  _id_ne: ObjectId
+  count_nin: [Int]
+  OR: [IngredientQueryInput!]
+  _id_lt: ObjectId
+  item: ItemQueryInput
+  _id_in: [ObjectId]
+  item_exists: Boolean
+  count_exists: Boolean
+  count_lt: Int
+  _id_gte: ObjectId
+  count_ne: Int
+  _id: ObjectId
+  _id_lte: ObjectId
+  _id_nin: [ObjectId]
+  _id_gt: ObjectId
+  count: Int
+  count_gt: Int
+  AND: [IngredientQueryInput!]
+  count_lte: Int
+  count_in: [Int]
+}
+
+type DeleteManyPayload {
+  deletedCount: Int!
+}
+
+input ManifestUpdateInput {
+  lastUpdated_unset: Boolean
+  manifests: [String]
+  manifests_unset: Boolean
+  _id: ObjectId
+  _id_unset: Boolean
+  lastUpdated: DateTime
+}
+
+input DroneUpdateInput {
+  name_unset: Boolean
+  recipe: ObjectId
+  recipe_unset: Boolean
+  uniqueName: String
+  uniqueName_unset: Boolean
+  _id: ObjectId
+  _id_unset: Boolean
+  name: String
+}
+
+input SentinelInsertInput {
+  uniqueName: String
+  _id: ObjectId
+  name: String
+  recipe: ObjectId
+}
+
+input WarframeQueryInput {
+  name_in: [String]
+  recipe_exists: Boolean
+  _id_nin: [ObjectId]
+  uniqueName_in: [String]
+  _id_ne: ObjectId
+  _id_gte: ObjectId
+  uniqueName_lte: String
+  uniqueName: String
+  name_lt: String
+  name_nin: [String]
+  recipe: RecipeQueryInput
+  _id_exists: Boolean
+  uniqueName_lt: String
+  OR: [WarframeQueryInput!]
+  name_exists: Boolean
+  uniqueName_ne: String
+  _id_in: [ObjectId]
+  name: String
+  _id_lte: ObjectId
+  name_lte: String
+  _id_lt: ObjectId
+  name_gte: String
+  name_gt: String
+  uniqueName_nin: [String]
+  uniqueName_exists: Boolean
+  _id: ObjectId
+  _id_gt: ObjectId
+  uniqueName_gte: String
+  AND: [WarframeQueryInput!]
+  name_ne: String
+  uniqueName_gt: String
+}
+
+type Upgrade {
+  _id: ObjectId
+  name: String
+  uniqueName: String
+}
+
+enum RelicarcaneSortByInput {
+  _ID_ASC
+  _ID_DESC
+  NAME_ASC
+  NAME_DESC
+  UNIQUENAME_ASC
+  UNIQUENAME_DESC
+}
+
+input RecipeIngredientsRelationInput {
+  create: [IngredientInsertInput]
+  link: [ObjectId]
+}
+
+input IngredientInsertInput {
+  _id: ObjectId
+  count: Int
+  item: IngredientItemRelationInput
+}
+
+input KeyInsertInput {
+  recipe: ObjectId
+  uniqueName: String
+  _id: ObjectId
+  name: String
+}
+
+input GearQueryInput {
+  uniqueName_gte: String
+  _id_gte: ObjectId
+  recipe: ObjectId
+  name_lt: String
+  name_gt: String
+  _id_nin: [ObjectId]
+  _id_exists: Boolean
+  uniqueName: String
+  recipe_gte: ObjectId
+  uniqueName_gt: String
+  _id_lte: ObjectId
+  recipe_lt: ObjectId
+  uniqueName_lt: String
+  recipe_ne: ObjectId
+  uniqueName_exists: Boolean
+  AND: [GearQueryInput!]
+  name_in: [String]
+  recipe_lte: ObjectId
+  uniqueName_in: [String]
+  name_exists: Boolean
+  recipe_exists: Boolean
+  name_nin: [String]
+  _id_ne: ObjectId
+  _id_lt: ObjectId
+  recipe_nin: [ObjectId]
+  recipe_gt: ObjectId
+  name_ne: String
+  uniqueName_ne: String
+  name: String
+  name_gte: String
+  OR: [GearQueryInput!]
+  name_lte: String
+  uniqueName_lte: String
+  recipe_in: [ObjectId]
+  _id_in: [ObjectId]
+  _id_gt: ObjectId
+  _id: ObjectId
+  uniqueName_nin: [String]
+}
+
+scalar DateTime
+
+type Key {
+  _id: ObjectId
+  name: String
+  recipe: ObjectId
+  uniqueName: String
+}
+
+input ItemRecipeRelationInput {
+  create: RecipeInsertInput
+  link: ObjectId
+}
+
+scalar ObjectId
+
+enum ManifestSortByInput {
+  _ID_ASC
+  _ID_DESC
+  LASTUPDATED_ASC
+  LASTUPDATED_DESC
+}
+
+type Weapon {
+  _id: ObjectId
+  name: String
+  recipe: ObjectId
+  uniqueName: String
+}
+
+input RecipeInsertInput {
+  name: String
+  uniqueName: String
+  _id: ObjectId
+  ingredients: RecipeIngredientsRelationInput
+}
+
+input ResourceInsertInput {
+  _id: ObjectId
+  name: String
+  recipe: ObjectId
+  uniqueName: String
+}
+
+input ItemUpdateInput {
+  uniqueName: String
+  uniqueName_unset: Boolean
+  _id: ObjectId
+  _id_unset: Boolean
+  name: String
+  name_unset: Boolean
+  recipe: ItemRecipeRelationInput
+  recipe_unset: Boolean
+}
+
+type Ingredient {
+  _id: ObjectId
+  count: Int
+  item: Item
+}
+
+input WeaponQueryInput {
+  name_lte: String
+  recipe_gt: ObjectId
+  recipe_lt: ObjectId
+  name_exists: Boolean
+  _id_nin: [ObjectId]
+  recipe_lte: ObjectId
+  name_gte: String
+  name_gt: String
+  uniqueName_nin: [String]
+  name: String
+  uniqueName_lte: String
+  uniqueName_gt: String
+  _id_lte: ObjectId
+  uniqueName_in: [String]
+  recipe_ne: ObjectId
+  name_ne: String
+  name_lt: String
+  _id: ObjectId
+  uniqueName_ne: String
+  name_nin: [String]
+  OR: [WeaponQueryInput!]
+  recipe: ObjectId
+  recipe_nin: [ObjectId]
+  _id_exists: Boolean
+  _id_gte: ObjectId
+  recipe_exists: Boolean
+  uniqueName_gte: String
+  recipe_gte: ObjectId
+  _id_in: [ObjectId]
+  _id_ne: ObjectId
+  uniqueName_lt: String
+  AND: [WeaponQueryInput!]
+  uniqueName_exists: Boolean
+  _id_gt: ObjectId
+  name_in: [String]
+  _id_lt: ObjectId
+  recipe_in: [ObjectId]
+  uniqueName: String
+}
+
+input KeyQueryInput {
+  recipe_nin: [ObjectId]
+  _id: ObjectId
+  _id_ne: ObjectId
+  _id_lt: ObjectId
+  recipe_gte: ObjectId
+  uniqueName_in: [String]
+  name_lte: String
+  _id_gt: ObjectId
+  recipe_exists: Boolean
+  recipe_ne: ObjectId
+  name_gt: String
+  name_exists: Boolean
+  name_ne: String
+  uniqueName_exists: Boolean
+  name: String
+  uniqueName_lt: String
+  recipe_lte: ObjectId
+  recipe_lt: ObjectId
+  uniqueName_nin: [String]
+  _id_in: [ObjectId]
+  recipe_in: [ObjectId]
+  name_nin: [String]
+  recipe: ObjectId
+  uniqueName_gt: String
+  OR: [KeyQueryInput!]
+  uniqueName_gte: String
+  uniqueName_lte: String
+  _id_nin: [ObjectId]
+  uniqueName_ne: String
+  _id_exists: Boolean
+  name_lt: String
+  _id_gte: ObjectId
+  name_in: [String]
+  recipe_gt: ObjectId
+  _id_lte: ObjectId
+  AND: [KeyQueryInput!]
+  name_gte: String
+  uniqueName: String
+}
+
+enum DroneSortByInput {
+  UNIQUENAME_DESC
+  _ID_ASC
+  _ID_DESC
+  NAME_ASC
+  NAME_DESC
+  RECIPE_ASC
+  RECIPE_DESC
+  UNIQUENAME_ASC
+}
+
+input WarframeUpdateInput {
+  _id_unset: Boolean
+  name: String
+  name_unset: Boolean
+  recipe: WarframeRecipeRelationInput
+  recipe_unset: Boolean
+  uniqueName: String
+  uniqueName_unset: Boolean
+  _id: ObjectId
+}
+
+input WeaponInsertInput {
+  _id: ObjectId
+  name: String
+  recipe: ObjectId
+  uniqueName: String
+}
+
+input RelicarcaneUpdateInput {
+  name_unset: Boolean
+  uniqueName: String
+  uniqueName_unset: Boolean
+  _id: ObjectId
+  _id_unset: Boolean
+  name: String
+}
+
+input ResourceUpdateInput {
+  recipe_unset: Boolean
+  uniqueName: String
+  uniqueName_unset: Boolean
+  _id: ObjectId
+  _id_unset: Boolean
+  name: String
+  name_unset: Boolean
+  recipe: ObjectId
+}
+
+enum SentinelSortByInput {
+  _ID_ASC
+  _ID_DESC
+  NAME_ASC
+  NAME_DESC
+  RECIPE_ASC
+  RECIPE_DESC
+  UNIQUENAME_ASC
+  UNIQUENAME_DESC
+}
+
+input RelicarcaneQueryInput {
+  uniqueName_nin: [String]
+  name_exists: Boolean
+  name_nin: [String]
+  name_ne: String
+  name_lt: String
+  _id_lt: ObjectId
+  uniqueName_ne: String
+  name_lte: String
+  _id_in: [ObjectId]
+  name_in: [String]
+  _id_nin: [ObjectId]
+  _id_lte: ObjectId
+  name: String
+  _id: ObjectId
+  name_gt: String
+  OR: [RelicarcaneQueryInput!]
+  _id_gt: ObjectId
+  _id_ne: ObjectId
+  uniqueName_gt: String
+  uniqueName: String
+  uniqueName_lte: String
+  uniqueName_gte: String
+  _id_exists: Boolean
+  _id_gte: ObjectId
+  uniqueName_in: [String]
+  name_gte: String
+  uniqueName_lt: String
+  AND: [RelicarcaneQueryInput!]
+  uniqueName_exists: Boolean
+}
+
+type Relicarcane {
+  _id: ObjectId
+  name: String
+  uniqueName: String
+}
+
+input UpgradeInsertInput {
+  _id: ObjectId
+  name: String
+  uniqueName: String
+}
+
+type UpdateManyPayload {
+  matchedCount: Int!
+  modifiedCount: Int!
+}
+
+type Manifest {
+  _id: ObjectId
+  lastUpdated: DateTime
+  manifests: [String]
+}
+
+input DroneQueryInput {
+  recipe_exists: Boolean
+  _id_in: [ObjectId]
+  _id_nin: [ObjectId]
+  recipe_in: [ObjectId]
+  _id_gte: ObjectId
+  name_ne: String
+  uniqueName_lte: String
+  name_gt: String
+  name_lt: String
+  _id: ObjectId
+  recipe_gte: ObjectId
+  name_in: [String]
+  name_lte: String
+  OR: [DroneQueryInput!]
+  _id_lte: ObjectId
+  name_gte: String
+  AND: [DroneQueryInput!]
+  uniqueName_gte: String
+  name: String
+  uniqueName_ne: String
+  _id_ne: ObjectId
+  recipe: ObjectId
+  _id_lt: ObjectId
+  uniqueName_nin: [String]
+  uniqueName_in: [String]
+  uniqueName_lt: String
+  name_exists: Boolean
+  uniqueName: String
+  _id_gt: ObjectId
+  recipe_lt: ObjectId
+  recipe_gt: ObjectId
+  uniqueName_gt: String
+  uniqueName_exists: Boolean
+  _id_exists: Boolean
+  name_nin: [String]
+  recipe_nin: [ObjectId]
+  recipe_lte: ObjectId
+  recipe_ne: ObjectId
+}
+
+type Mutation {
+  deleteManyCustoms(query: CustomQueryInput): DeleteManyPayload
+  deleteManyDrones(query: DroneQueryInput): DeleteManyPayload
+  deleteManyGears(query: GearQueryInput): DeleteManyPayload
+  deleteManyIngredients(query: IngredientQueryInput): DeleteManyPayload
+  deleteManyItems(query: ItemQueryInput): DeleteManyPayload
+  deleteManyKeys(query: KeyQueryInput): DeleteManyPayload
+  deleteManyManifests(query: ManifestQueryInput): DeleteManyPayload
+  deleteManyRecipes(query: RecipeQueryInput): DeleteManyPayload
+  deleteManyRelicarcanes(query: RelicarcaneQueryInput): DeleteManyPayload
+  deleteManyResources(query: ResourceQueryInput): DeleteManyPayload
+  deleteManySentinels(query: SentinelQueryInput): DeleteManyPayload
+  deleteManyUpgrades(query: UpgradeQueryInput): DeleteManyPayload
+  deleteManyWarframes(query: WarframeQueryInput): DeleteManyPayload
+  deleteManyWeapons(query: WeaponQueryInput): DeleteManyPayload
+  deleteOneCustom(query: CustomQueryInput!): Custom
+  deleteOneDrone(query: DroneQueryInput!): Drone
+  deleteOneGear(query: GearQueryInput!): Gear
+  deleteOneIngredient(query: IngredientQueryInput!): Ingredient
+  deleteOneItem(query: ItemQueryInput!): Item
+  deleteOneKey(query: KeyQueryInput!): Key
+  deleteOneManifest(query: ManifestQueryInput!): Manifest
+  deleteOneRecipe(query: RecipeQueryInput!): Recipe
+  deleteOneRelicarcane(query: RelicarcaneQueryInput!): Relicarcane
+  deleteOneResource(query: ResourceQueryInput!): Resource
+  deleteOneSentinel(query: SentinelQueryInput!): Sentinel
+  deleteOneUpgrade(query: UpgradeQueryInput!): Upgrade
+  deleteOneWarframe(query: WarframeQueryInput!): Warframe
+  deleteOneWeapon(query: WeaponQueryInput!): Weapon
+  insertManyCustoms(data: [CustomInsertInput!]!): InsertManyPayload
+  insertManyDrones(data: [DroneInsertInput!]!): InsertManyPayload
+  insertManyGears(data: [GearInsertInput!]!): InsertManyPayload
+  insertManyIngredients(data: [IngredientInsertInput!]!): InsertManyPayload
+  insertManyItems(data: [ItemInsertInput!]!): InsertManyPayload
+  insertManyKeys(data: [KeyInsertInput!]!): InsertManyPayload
+  insertManyManifests(data: [ManifestInsertInput!]!): InsertManyPayload
+  insertManyRecipes(data: [RecipeInsertInput!]!): InsertManyPayload
+  insertManyRelicarcanes(data: [RelicarcaneInsertInput!]!): InsertManyPayload
+  insertManyResources(data: [ResourceInsertInput!]!): InsertManyPayload
+  insertManySentinels(data: [SentinelInsertInput!]!): InsertManyPayload
+  insertManyUpgrades(data: [UpgradeInsertInput!]!): InsertManyPayload
+  insertManyWarframes(data: [WarframeInsertInput!]!): InsertManyPayload
+  insertManyWeapons(data: [WeaponInsertInput!]!): InsertManyPayload
+  insertOneCustom(data: CustomInsertInput!): Custom
+  insertOneDrone(data: DroneInsertInput!): Drone
+  insertOneGear(data: GearInsertInput!): Gear
+  insertOneIngredient(data: IngredientInsertInput!): Ingredient
+  insertOneItem(data: ItemInsertInput!): Item
+  insertOneKey(data: KeyInsertInput!): Key
+  insertOneManifest(data: ManifestInsertInput!): Manifest
+  insertOneRecipe(data: RecipeInsertInput!): Recipe
+  insertOneRelicarcane(data: RelicarcaneInsertInput!): Relicarcane
+  insertOneResource(data: ResourceInsertInput!): Resource
+  insertOneSentinel(data: SentinelInsertInput!): Sentinel
+  insertOneUpgrade(data: UpgradeInsertInput!): Upgrade
+  insertOneWarframe(data: WarframeInsertInput!): Warframe
+  insertOneWeapon(data: WeaponInsertInput!): Weapon
+  replaceOneCustom(query: CustomQueryInput, data: CustomInsertInput!): Custom
+  replaceOneDrone(query: DroneQueryInput, data: DroneInsertInput!): Drone
+  replaceOneGear(data: GearInsertInput!, query: GearQueryInput): Gear
+  replaceOneIngredient(query: IngredientQueryInput, data: IngredientInsertInput!): Ingredient
+  replaceOneItem(data: ItemInsertInput!, query: ItemQueryInput): Item
+  replaceOneKey(query: KeyQueryInput, data: KeyInsertInput!): Key
+  replaceOneManifest(query: ManifestQueryInput, data: ManifestInsertInput!): Manifest
+  replaceOneRecipe(query: RecipeQueryInput, data: RecipeInsertInput!): Recipe
+  replaceOneRelicarcane(data: RelicarcaneInsertInput!, query: RelicarcaneQueryInput): Relicarcane
+  replaceOneResource(data: ResourceInsertInput!, query: ResourceQueryInput): Resource
+  replaceOneSentinel(query: SentinelQueryInput, data: SentinelInsertInput!): Sentinel
+  replaceOneUpgrade(query: UpgradeQueryInput, data: UpgradeInsertInput!): Upgrade
+  replaceOneWarframe(query: WarframeQueryInput, data: WarframeInsertInput!): Warframe
+  replaceOneWeapon(query: WeaponQueryInput, data: WeaponInsertInput!): Weapon
+  updateManyCustoms(query: CustomQueryInput, set: CustomUpdateInput!): UpdateManyPayload
+  updateManyDrones(query: DroneQueryInput, set: DroneUpdateInput!): UpdateManyPayload
+  updateManyGears(query: GearQueryInput, set: GearUpdateInput!): UpdateManyPayload
+  updateManyIngredients(query: IngredientQueryInput, set: IngredientUpdateInput!): UpdateManyPayload
+  updateManyItems(query: ItemQueryInput, set: ItemUpdateInput!): UpdateManyPayload
+  updateManyKeys(set: KeyUpdateInput!, query: KeyQueryInput): UpdateManyPayload
+  updateManyManifests(query: ManifestQueryInput, set: ManifestUpdateInput!): UpdateManyPayload
+  updateManyRecipes(query: RecipeQueryInput, set: RecipeUpdateInput!): UpdateManyPayload
+  updateManyRelicarcanes(query: RelicarcaneQueryInput, set: RelicarcaneUpdateInput!): UpdateManyPayload
+  updateManyResources(query: ResourceQueryInput, set: ResourceUpdateInput!): UpdateManyPayload
+  updateManySentinels(query: SentinelQueryInput, set: SentinelUpdateInput!): UpdateManyPayload
+  updateManyUpgrades(query: UpgradeQueryInput, set: UpgradeUpdateInput!): UpdateManyPayload
+  updateManyWarframes(query: WarframeQueryInput, set: WarframeUpdateInput!): UpdateManyPayload
+  updateManyWeapons(query: WeaponQueryInput, set: WeaponUpdateInput!): UpdateManyPayload
+  updateOneCustom(query: CustomQueryInput, set: CustomUpdateInput!): Custom
+  updateOneDrone(query: DroneQueryInput, set: DroneUpdateInput!): Drone
+  updateOneGear(query: GearQueryInput, set: GearUpdateInput!): Gear
+  updateOneIngredient(query: IngredientQueryInput, set: IngredientUpdateInput!): Ingredient
+  updateOneItem(query: ItemQueryInput, set: ItemUpdateInput!): Item
+  updateOneKey(query: KeyQueryInput, set: KeyUpdateInput!): Key
+  updateOneManifest(query: ManifestQueryInput, set: ManifestUpdateInput!): Manifest
+  updateOneRecipe(query: RecipeQueryInput, set: RecipeUpdateInput!): Recipe
+  updateOneRelicarcane(query: RelicarcaneQueryInput, set: RelicarcaneUpdateInput!): Relicarcane
+  updateOneResource(query: ResourceQueryInput, set: ResourceUpdateInput!): Resource
+  updateOneSentinel(query: SentinelQueryInput, set: SentinelUpdateInput!): Sentinel
+  updateOneUpgrade(query: UpgradeQueryInput, set: UpgradeUpdateInput!): Upgrade
+  updateOneWarframe(query: WarframeQueryInput, set: WarframeUpdateInput!): Warframe
+  updateOneWeapon(query: WeaponQueryInput, set: WeaponUpdateInput!): Weapon
+  upsertOneCustom(data: CustomInsertInput!, query: CustomQueryInput): Custom
+  upsertOneDrone(data: DroneInsertInput!, query: DroneQueryInput): Drone
+  upsertOneGear(data: GearInsertInput!, query: GearQueryInput): Gear
+  upsertOneIngredient(query: IngredientQueryInput, data: IngredientInsertInput!): Ingredient
+  upsertOneItem(query: ItemQueryInput, data: ItemInsertInput!): Item
+  upsertOneKey(query: KeyQueryInput, data: KeyInsertInput!): Key
+  upsertOneManifest(query: ManifestQueryInput, data: ManifestInsertInput!): Manifest
+  upsertOneRecipe(query: RecipeQueryInput, data: RecipeInsertInput!): Recipe
+  upsertOneRelicarcane(query: RelicarcaneQueryInput, data: RelicarcaneInsertInput!): Relicarcane
+  upsertOneResource(query: ResourceQueryInput, data: ResourceInsertInput!): Resource
+  upsertOneSentinel(query: SentinelQueryInput, data: SentinelInsertInput!): Sentinel
+  upsertOneUpgrade(query: UpgradeQueryInput, data: UpgradeInsertInput!): Upgrade
+  upsertOneWarframe(query: WarframeQueryInput, data: WarframeInsertInput!): Warframe
+  upsertOneWeapon(data: WeaponInsertInput!, query: WeaponQueryInput): Weapon
+}
+
+input RecipeUpdateInput {
+  _id: ObjectId
+  _id_unset: Boolean
+  ingredients: RecipeIngredientsRelationInput
+  ingredients_unset: Boolean
+  name: String
+  name_unset: Boolean
+  uniqueName: String
+  uniqueName_unset: Boolean
+}
+
+input GearInsertInput {
+  _id: ObjectId
+  name: String
+  recipe: ObjectId
+  uniqueName: String
+}
+
+input KeyUpdateInput {
+  name_unset: Boolean
+  recipe: ObjectId
+  recipe_unset: Boolean
+  uniqueName: String
+  uniqueName_unset: Boolean
+  _id: ObjectId
+  _id_unset: Boolean
+  name: String
+}
+
+enum CustomSortByInput {
+  RECIPE_DESC
+  UNIQUENAME_ASC
+  UNIQUENAME_DESC
+  _ID_ASC
+  _ID_DESC
+  NAME_ASC
+  NAME_DESC
+  RECIPE_ASC
+}
+
+type Resource {
+  _id: ObjectId
+  name: String
+  recipe: ObjectId
+  uniqueName: String
+}
+
+enum KeySortByInput {
+  NAME_ASC
+  NAME_DESC
+  RECIPE_ASC
+  RECIPE_DESC
+  UNIQUENAME_ASC
+  UNIQUENAME_DESC
+  _ID_ASC
+  _ID_DESC
+}
+
+input ItemInsertInput {
+  _id: ObjectId
+  name: String
+  recipe: ItemRecipeRelationInput
+  uniqueName: String
+}
+
+type Item {
+  _id: ObjectId
+  name: String
+  recipe: Recipe
+  uniqueName: String
+}
+
+enum WeaponSortByInput {
+  NAME_DESC
+  RECIPE_ASC
+  RECIPE_DESC
+  UNIQUENAME_ASC
+  UNIQUENAME_DESC
+  _ID_ASC
+  _ID_DESC
+  NAME_ASC
+}
+
+input SentinelQueryInput {
+  _id_lt: ObjectId
+  _id_gt: ObjectId
+  name_exists: Boolean
+  recipe: ObjectId
+  recipe_lte: ObjectId
+  uniqueName: String
+  _id_nin: [ObjectId]
+  uniqueName_exists: Boolean
+  recipe_gte: ObjectId
+  OR: [SentinelQueryInput!]
+  name_gt: String
+  name_lt: String
+  _id_ne: ObjectId
+  recipe_exists: Boolean
+  recipe_lt: ObjectId
+  _id: ObjectId
+  name_ne: String
+  uniqueName_nin: [String]
+  recipe_ne: ObjectId
+  name: String
+  uniqueName_lte: String
+  _id_exists: Boolean
+  name_in: [String]
+  recipe_gt: ObjectId
+  uniqueName_gte: String
+  name_gte: String
+  uniqueName_lt: String
+  AND: [SentinelQueryInput!]
+  recipe_in: [ObjectId]
+  _id_lte: ObjectId
+  uniqueName_gt: String
+  name_nin: [String]
+  _id_gte: ObjectId
+  uniqueName_ne: String
+  uniqueName_in: [String]
+  _id_in: [ObjectId]
+  name_lte: String
+  recipe_nin: [ObjectId]
+}
+
+type Sentinel {
+  _id: ObjectId
+  name: String
+  recipe: ObjectId
+  uniqueName: String
+}
+
+input UpgradeQueryInput {
+  name_ne: String
+  _id_exists: Boolean
+  name_exists: Boolean
+  name_lt: String
+  name: String
+  name_nin: [String]
+  _id_lt: ObjectId
+  uniqueName_exists: Boolean
+  _id_nin: [ObjectId]
+  OR: [UpgradeQueryInput!]
+  uniqueName_gt: String
+  _id_gt: ObjectId
+  name_lte: String
+  uniqueName: String
+  uniqueName_lte: String
+  _id_ne: ObjectId
+  name_gt: String
+  _id_lte: ObjectId
+  uniqueName_in: [String]
+  AND: [UpgradeQueryInput!]
+  _id: ObjectId
+  uniqueName_lt: String
+  uniqueName_nin: [String]
+  _id_gte: ObjectId
+  uniqueName_ne: String
+  name_in: [String]
+  name_gte: String
+  uniqueName_gte: String
+  _id_in: [ObjectId]
+}
+
+type Query {
+  custom(query: CustomQueryInput): Custom
+  customs(limit: Int = 100, sortBy: CustomSortByInput, query: CustomQueryInput): [Custom]!
+  drone(query: DroneQueryInput): Drone
+  drones(sortBy: DroneSortByInput, query: DroneQueryInput, limit: Int = 100): [Drone]!
+  gear(query: GearQueryInput): Gear
+  gears(query: GearQueryInput, limit: Int = 100, sortBy: GearSortByInput): [Gear]!
+  ingredient(query: IngredientQueryInput): Ingredient
+  ingredients(query: IngredientQueryInput, limit: Int = 100, sortBy: IngredientSortByInput): [Ingredient]!
+  item(query: ItemQueryInput): Item
+  items(query: ItemQueryInput, limit: Int = 100, sortBy: ItemSortByInput): [Item]!
+  key(query: KeyQueryInput): Key
+  keys(query: KeyQueryInput, limit: Int = 100, sortBy: KeySortByInput): [Key]!
+  manifest(query: ManifestQueryInput): Manifest
+  manifests(limit: Int = 100, sortBy: ManifestSortByInput, query: ManifestQueryInput): [Manifest]!
+  recipe(query: RecipeQueryInput): Recipe
+  recipes(sortBy: RecipeSortByInput, query: RecipeQueryInput, limit: Int = 100): [Recipe]!
+  relicarcane(query: RelicarcaneQueryInput): Relicarcane
+  relicarcanes(query: RelicarcaneQueryInput, limit: Int = 100, sortBy: RelicarcaneSortByInput): [Relicarcane]!
+  resource(query: ResourceQueryInput): Resource
+  resources(query: ResourceQueryInput, limit: Int = 100, sortBy: ResourceSortByInput): [Resource]!
+  sentinel(query: SentinelQueryInput): Sentinel
+  sentinels(query: SentinelQueryInput, limit: Int = 100, sortBy: SentinelSortByInput): [Sentinel]!
+  upgrade(query: UpgradeQueryInput): Upgrade
+  upgrades(query: UpgradeQueryInput, limit: Int = 100, sortBy: UpgradeSortByInput): [Upgrade]!
+  warframe(query: WarframeQueryInput): Warframe
+  warframes(sortBy: WarframeSortByInput, query: WarframeQueryInput, limit: Int = 100): [Warframe]!
+  weapon(query: WeaponQueryInput): Weapon
+  weapons(sortBy: WeaponSortByInput, query: WeaponQueryInput, limit: Int = 100): [Weapon]!
+}
+
+enum ResourceSortByInput {
+  _ID_DESC
+  NAME_ASC
+  NAME_DESC
+  RECIPE_ASC
+  RECIPE_DESC
+  UNIQUENAME_ASC
+  UNIQUENAME_DESC
+  _ID_ASC
+}
+
+input CustomInsertInput {
+  recipe: ObjectId
+  uniqueName: String
+  _id: ObjectId
+  name: String
+}
